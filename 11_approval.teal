@@ -1,0 +1,67 @@
+#pragma version 5
+txn ApplicationID
+int 0
+==
+bnz main_l10
+txn OnCompletion
+int OptIn
+==
+bnz main_l9
+txn OnCompletion
+int CloseOut
+==
+bnz main_l8
+txn OnCompletion
+int UpdateApplication
+==
+bnz main_l7
+txn OnCompletion
+int DeleteApplication
+==
+bnz main_l6
+err
+main_l6:
+int 1
+return
+main_l7:
+int 1
+return
+main_l8:
+int 0
+return
+main_l9:
+int 0
+return
+main_l10:
+byte "HolderOne"
+byte "5F4U7JNC6FL667MTE3D5MCXWNKYSDOZDYKOFRVFVDS7CPDDBJ33LR5BLZZ"
+app_global_put
+byte "HolderTwo"
+byte "5EEU7JNC6FL667MTE3D5MCXWNKYSDOZDYKOFRVFVDS7CPDDBJ33LR5BLZI"
+app_global_put
+byte "HolderThree"
+byte "5DDU7JNC6FL667MTE3D5MCXWNKYSDOZDYKOFRVFVDS7CPDDBJ33LR5BLZI"
+app_global_put
+byte "HolderFour"
+byte "5BBU7JNC6FL667MTE3D5MCXWNKYSDOZDYKOFRVFVDS7CPDDBJ33LR5BLZI"
+app_global_put
+byte "HolderFive"
+byte "5CCU7JNC6FL667MTE3D5MCXWNKYSDOZDYKOFRVFVDS7CPDDBJ33LR5BLZI"
+app_global_put
+byte "HolderOneAmt"
+int 20
+app_global_put
+byte "HolderTwoAmt"
+int 15
+app_global_put
+byte "HolderThreeAmt"
+int 40
+app_global_put
+byte "HolderFourAmt"
+int 15
+app_global_put
+byte "HolderFiveAmt"
+int 10
+app_global_put
+int 1
+return
